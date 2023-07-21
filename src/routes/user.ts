@@ -16,7 +16,7 @@ router.get('/:id', authorizer, validator(showEventSchema), controller.show);
 router.patch(
   '/confirm/:email',
   validator(confirmEventSchema),
-  controller.confirm
+  controller.confirm,
 );
 
 export default router;

@@ -7,10 +7,6 @@ import { authEventSchema } from '../validators/Auth';
 const router = Router();
 const controller = AuthController.getInstance();
 
-router.post(
-  '/',
-  validator(authEventSchema),
-  controller.authentication,
-);
+router.post('/', validator(authEventSchema), controller.authentication);
 
 export default router;

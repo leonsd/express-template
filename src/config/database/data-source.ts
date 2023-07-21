@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { entities } from '../../models';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 const options = {
@@ -12,8 +11,8 @@ const options = {
     database: process.env.DB_NAME,
     logging: false,
     migrationsRun: false,
-    entities,
-    migrations: ['./migrations/*.ts'],
+    entities: ['src/models/*.ts'],
+    migrations: ['src/config/database/migrations/*.ts'],
   },
   qa: {
     type: 'mysql',

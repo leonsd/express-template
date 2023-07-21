@@ -16,7 +16,7 @@ export class AuthController extends BaseController {
   authentication = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     try {
       const token = await this.authService.authentication(req.body);

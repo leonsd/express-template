@@ -16,7 +16,7 @@ export class UserController extends BaseController {
   create = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     try {
       const created = await this.userService.create(req.body);
@@ -31,7 +31,7 @@ export class UserController extends BaseController {
   show = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     try {
       const id = Number(req.params.id);
@@ -47,7 +47,7 @@ export class UserController extends BaseController {
   confirm = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     try {
       const email = req.params.email;
