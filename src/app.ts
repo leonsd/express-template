@@ -2,30 +2,43 @@ import express, { Application } from 'express';
 import cors from 'cors';
 
 import { openConnection } from './middlewares/databaseConnection';
+import { errorHandler } from './middlewares/errorHandler';
 import { router } from './routes';
 
 export class App {
-  public express: Application;
+  public app: Application;
 
   constructor() {
-    this.express = express();
+    this.app = express();
+
+    this.connectToTheDatabase();
+    this.initializeMiddlewares();
+    this.initializeRoutes();
+    this.initializeErrorHandling();
   }
 
-  boot = () => {
+  listen = () => {
+    const PORT = process.env.PORT || 3000;
+    this.app.listen(PORT, () => {
+      const { log } = console;
+      log('App started in PORT ', PORT);
+    });
+  };
+
+  connectToTheDatabase = () => {
     openConnection().then();
-
-    this.middlewares();
-    this.routes();
-
-    return this.express;
   };
 
-  middlewares = () => {
-    this.express.use(express.json());
-    this.express.use(cors());
+  initializeMiddlewares = () => {
+    this.app.use(express.json());
+    this.app.use(cors());
   };
 
-  routes() {
-    this.express.use(router);
+  initializeRoutes() {
+    this.app.use(router);
   }
+
+  initializeErrorHandling = () => {
+    this.app.use(errorHandler);
+  };
 }
