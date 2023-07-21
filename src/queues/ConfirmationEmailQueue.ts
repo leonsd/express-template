@@ -10,12 +10,12 @@ export class ConfirmationEmailQueue {
   static getInstance(): ConfirmationEmailQueue {
     if (!ConfirmationEmailQueue.queueName) {
       throw new InternalException(
-        'environment variable SEND_CONFIRMATION_EMAIL_QUEUE not set'
+        'environment variable SEND_CONFIRMATION_EMAIL_QUEUE not set',
       );
     }
 
     const clientQueue = ClientQueue.getInstance(
-      ConfirmationEmailQueue.queueName
+      ConfirmationEmailQueue.queueName,
     );
 
     return new ConfirmationEmailQueue(clientQueue);

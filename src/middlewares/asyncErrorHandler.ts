@@ -13,7 +13,7 @@ const normalizeError = (error: Error | null) => {
 };
 
 export const asyncErrorHandler = (
-  fn: (req: Request, res: Response) => Promise<void>
+  fn: (req: Request, res: Response) => Promise<void>,
 ) => {
   return async (req: Request, res: Response) => {
     try {

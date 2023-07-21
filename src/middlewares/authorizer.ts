@@ -29,7 +29,7 @@ const verifyToken = (token: string) => {
 export const authorizer = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   const token = req.headers.token as string;
 

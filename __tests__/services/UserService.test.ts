@@ -188,7 +188,7 @@ describe('UserService', () => {
     expect(userRepositoryMock.updateByEmail).toHaveBeenCalledTimes(1);
     expect(userRepositoryMock.updateByEmail).toHaveBeenCalledWith(
       userDataMock.email,
-      { isConfirmed: true }
+      { isConfirmed: true },
     );
   });
 });

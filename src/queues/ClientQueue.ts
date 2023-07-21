@@ -7,7 +7,7 @@ import {
 export class ClientQueue {
   constructor(
     private readonly clientQueue: SQSClient,
-    private readonly queueUrl: string
+    private readonly queueUrl: string,
   ) {}
 
   static getInstance(queueUrl: string) {

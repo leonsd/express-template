@@ -15,18 +15,18 @@ const controller = UserController.getInstance();
 router.post(
   '/',
   validator(createEventSchema),
-  asyncErrorHandler(controller.create)
+  asyncErrorHandler(controller.create),
 );
 router.get(
   '/:id',
   authorizer,
   validator(showEventSchema),
-  asyncErrorHandler(controller.show)
+  asyncErrorHandler(controller.show),
 );
 router.patch(
   '/confirm/:email',
   validator(confirmEventSchema),
-  asyncErrorHandler(controller.confirm)
+  asyncErrorHandler(controller.confirm),
 );
 
 export default router;

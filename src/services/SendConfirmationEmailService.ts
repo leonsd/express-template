@@ -5,7 +5,7 @@ import { UserRepository } from '../repositories/UserRepository';
 export class SendConfirmationEmailService {
   constructor(
     private readonly userRepository: UserRepository,
-    private readonly emailService: EmailService
+    private readonly emailService: EmailService,
   ) {}
 
   static getInstance() {

@@ -35,7 +35,7 @@ describe('ConfirmationEmailQueue', () => {
 
     expect(sqsClient.send).toHaveBeenCalledTimes(1);
     expect(sqsClient.send).toHaveBeenCalledWith(
-      expect.objectContaining({ input })
+      expect.objectContaining({ input }),
     );
   });
 });

@@ -9,7 +9,7 @@ import * as transform from '../transforms/user';
 export class UserService {
   constructor(
     private readonly userRepository: UserRepository,
-    private readonly confirmationEmailQueue: ConfirmationEmailQueue
+    private readonly confirmationEmailQueue: ConfirmationEmailQueue,
   ) {}
 
   static getInstance() {

@@ -15,7 +15,7 @@ describe('HttpService', () => {
 
     expect(AxiosMock.create).toHaveBeenCalledTimes(1);
     expect(AxiosMock.create).toHaveBeenCalledWith(
-      expect.objectContaining({ baseURL })
+      expect.objectContaining({ baseURL }),
     );
   });
 });

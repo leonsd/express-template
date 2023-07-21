@@ -3,7 +3,7 @@ import { ISQSEvent } from '../interfaces/SQSEvent';
 import { SendConfirmationEmailService } from '../services/SendConfirmationEmailService';
 
 export const sendConfirmationEmail = async (
-  event: ISQSEvent<IConfirmationEmail>
+  event: ISQSEvent<IConfirmationEmail>,
 ) => {
   try {
     const sendConfirmationEmailService =

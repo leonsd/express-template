@@ -10,7 +10,7 @@ import Joi from 'joi';
 */
 // eslint-disable-next-line no-useless-escape
 const passwordPattern = new RegExp(
-  '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^ws]).{8,16}$'
+  '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^ws]).{8,16}$',
 );
 const passwordError = new Error('Password does not match minimum requirements');
 

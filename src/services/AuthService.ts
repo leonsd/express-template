@@ -26,7 +26,7 @@ export class AuthService {
 
     const match = await this.checkPassword(
       password,
-      String(userEntity.password)
+      String(userEntity.password),
     );
 
     if (!match) {
@@ -42,7 +42,7 @@ export class AuthService {
 
   private checkPassword = async (
     inputPassword: string,
-    hashPassword: string
+    hashPassword: string,
   ) => {
     const match = await compare(inputPassword, hashPassword);
 
@@ -53,7 +53,7 @@ export class AuthService {
     const secret = process.env.JWT_SECRET;
 
     if (!secret) {
-      throw new InternalException('environment variable JWT_SECRET not set')
+      throw new InternalException('environment variable JWT_SECRET not set');
     }
 
     const token = sign(user, secret, { expiresIn });

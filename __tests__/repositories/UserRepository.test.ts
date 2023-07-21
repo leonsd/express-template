@@ -81,7 +81,7 @@ describe('AuthService', () => {
     expect(UserModelMock.update).toHaveBeenCalledTimes(1);
     expect(UserModelMock.update).toHaveBeenCalledWith(
       { email: userDataMock.email },
-      data
+      data,
     );
   });
 });
