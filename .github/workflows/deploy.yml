@@ -2,15 +2,10 @@ name: Pipeline
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Tests:
+  CI:
     runs-on: ubuntu-latest
     steps:
+      - run: npm i
       - run: npm run test
-  Lint:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run lint
-  Build:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run build
