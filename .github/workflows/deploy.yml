@@ -29,6 +29,11 @@ jobs:
         with:
           node-version: 18.16
 
+      - name: Environment variables to Dotenv
+        uses: CallePuzzle/envvar-to-dotenv-action@v1.1.5
+        with:
+          variableNames: DB_HOST,DB_PORT,DB_USERNAME,DB_PASSWORD,DB_NAME,NODE_ENV,SEND_CONFIRMATION_EMAIL_QUEUE,JWT_SECRET,REDIS_HOST,REDIS_PORT
+
       - name: Install dependencies
         run: npm install
 
