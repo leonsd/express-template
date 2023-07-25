@@ -1,5 +1,4 @@
 name: CI
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -18,6 +17,26 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.16
+
+      - name: Creating .env file
+        uses: fmunirdev/envvar-to-dotenv-action@v0.2.0
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+
+          SEND_CONFIRMATION_EMAIL_QUEUE: ${{ secrets.SEND_CONFIRMATION_EMAIL_QUEUE }}
+
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
+        with:
+          variableName: DB_HOST,DB_PORT,DB_USERNAME,DB_PASSWORD,DB_NAME,NODE_ENV,SEND_CONFIRMATION_EMAIL_QUEUE,JWT_SECRET,REDIS_HOST,REDIS_PORT
 
       - name: Install dependencies
         run: npm install
