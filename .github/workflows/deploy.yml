@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,8 +35,6 @@ jobs:
         with:
           wildecard: "^"
           filename: ".env"
-
-      - run: echo secrets
 
       - name: Install dependencies
         run: npm install
