@@ -1,15 +1,4 @@
 name: CI
-env:
-  DB_HOST: localhost
-  DB_PORT: 3306
-  DB_USERNAME: root
-  DB_PASSWORD: password
-  DB_NAME: template-express
-  NODE_ENV: dev
-  SEND_CONFIRMATION_EMAIL_QUEUE: teste
-  JWT_SECRET: 4b0975fedd303ce4ebcaff1c845e99c22ebc10ea72b31cad5c5e637423d0759b
-  REDIS_HOST: teste
-  REDIS_PORT: 123
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -29,10 +18,22 @@ jobs:
         with:
           node-version: 18.16
 
-      - name: Environment variables to Dotenv
-        uses: CallePuzzle/envvar-to-dotenv-action@v1.1.5
+      - name: Creating .env file
+        uses: weyheyhey/create-dotenv-action@v1
+        env:
+          ^DB_HOST: ${{ secrets.DB_HOST }}
+          ^DB_PORT: ${{ secrets.DB_PORT }}
+          ^DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          ^DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          ^DB_NAME: ${{ secrets.DB_NAME }}
+          ^NODE_ENV: ${{ secrets.NODE_ENV }}
+          ^SEND_CONFIRMATION_EMAIL_QUEUE: ${{ secrets.SEND_CONFIRMATION_EMAIL_QUEUE }}
+          ^JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          ^REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          ^REDIS_PORT: ${{ secrets.REDIS_PORT }}
         with:
-          variableNames: DB_HOST,DB_PORT,DB_USERNAME,DB_PASSWORD,DB_NAME,NODE_ENV,SEND_CONFIRMATION_EMAIL_QUEUE,JWT_SECRET,REDIS_HOST,REDIS_PORT
+          wildecard: "^"
+          filename: ".env"
 
       - name: Install dependencies
         run: npm install
