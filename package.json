@@ -17,7 +17,7 @@
     "test": "npx dotenv-run-script .env jest -- --collectCoverage --passWithNoTests",
     "test:watch": "npx dotenv-run-script .env jest -- --collectCoverage --watch",
     "test:watchAll": "npx dotenv-run-script .env jest -- --collectCoverage --watchAll",
-    "test:staged": "npx dotenv-run-script .env jest --passWithNoTests",
+    "test:staged": "npx dotenv-run-script .env jest -- --passWithNoTests",
     "watch": "tsc -w"
   },
   "author": "",
