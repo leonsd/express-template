@@ -5,7 +5,7 @@ Express template
 ## Requisitos
 
 ```
-Node: 18.16.x
+Node: 18.17.x
 npm: 9.5.x
 Mysql: 8.x
 ```
